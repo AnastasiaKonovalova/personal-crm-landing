@@ -1,0 +1,11 @@
+---
+import Logo from './Logo.astro';
+import { nbsp, texts } from '../lib/texts';
+---
+
+<footer class="mt-auto border-t border-line px-page pt-6 pb-8 lg:pt-7 lg:pb-9">
+  <div class="mx-auto flex max-w-content flex-wrap items-center gap-2 lg:gap-2.5">
+    <Logo size="footer" />
+    <span class="ml-auto text-13 text-muted lg:text-14">{nbsp(texts.tagline)}</span>
+  </div>
+</footer>

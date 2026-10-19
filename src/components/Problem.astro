@@ -1,0 +1,35 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { nbsp, texts } from '../lib/texts';
+
+// Icons follow the order of problem_items in src/content/landing.md
+const icons = [
+  '<circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5"/><path d="M16.5 15.5a2.5 2.5 0 1 1 3.2 2.4c-.5.2-.7.6-.7 1.1"/><path d="M19 21.5h.01"/>',
+  '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  '<rect x="3" y="4" width="8" height="6" rx="1.5" transform="rotate(-8 7 7)"/><rect x="13" y="8" width="8" height="6" rx="1.5" transform="rotate(10 17 11)"/><rect x="6" y="14" width="8" height="6" rx="1.5" transform="rotate(4 10 17)"/>',
+];
+---
+
+<section class="border-t border-line px-page py-14 lg:py-24">
+  <div class="mx-auto flex max-w-content flex-col">
+    <SectionLabel>{nbsp(texts.problem_label)}</SectionLabel>
+    <h2 class="mt-5 font-display text-h2 font-semibold text-ink lg:mt-6 lg:max-w-problem-title lg:text-h2-lg">
+      {nbsp(texts.problem_title)}
+    </h2>
+
+    <ul class="mt-6.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3 lg:mt-11 lg:gap-4">
+      {texts.problem_items.map((item, i) => (
+        <li class="flex gap-3.5 rounded-card border border-line bg-surface p-5 lg:flex-col lg:gap-4.5 lg:p-7">
+          <span aria-hidden="true" class="flex size-9 flex-none items-center justify-center rounded-full bg-surface-2 lg:size-11">
+            <svg class="size-5 text-brown lg:size-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={icons[i % icons.length]} />
+          </span>
+          <span class="text-15-5 leading-body text-ink lg:text-17">{nbsp(item)}</span>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-7 px-1 font-display text-closing font-medium text-brown lg:mt-13 lg:max-w-closing lg:px-0 lg:text-closing-lg">
+      {nbsp(texts.problem_closing)}
+    </p>
+  </div>
+</section>

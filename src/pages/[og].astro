@@ -1,0 +1,30 @@
+---
+// OG image template (1200×630), screenshotted into public/og.png — see README.
+// Exists only in dev: in production getStaticPaths returns nothing, so the page is not built.
+import Base from '../layouts/Base.astro';
+import ContactCardStack from '../components/ContactCardStack.astro';
+import Logo from '../components/Logo.astro';
+import MarkedText from '../components/MarkedText.astro';
+import { nbsp, texts } from '../lib/texts';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { og: 'og-image' } }] : [];
+}
+---
+
+<Base>
+  <div class="relative flex h-157.5 w-300 items-center gap-16 overflow-hidden px-20">
+    <div class="flex flex-1 flex-col">
+      <Logo size="header" />
+      <h1 class="mt-12 text-balance font-display text-h1-lg font-semibold text-ink">
+        <MarkedText text={texts.hero_title} />
+      </h1>
+      <div class="mt-9 inline-flex items-center gap-2.25 self-start rounded-pill border border-line bg-surface px-4 py-1.75 font-display text-16 tracking-pill text-muted">
+        <span aria-hidden="true" class="size-1.75 rounded-full bg-teal"></span>{nbsp(texts.tagline)}
+      </div>
+    </div>
+    <div class="w-117.5 flex-none">
+      <ContactCardStack />
+    </div>
+  </div>
+</Base>

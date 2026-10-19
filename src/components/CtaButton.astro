@@ -1,0 +1,25 @@
+---
+import { texts } from '../lib/texts';
+
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+
+// TODO: app URL is not ready yet. Set PUBLIC_APP_URL in .env (see README.md, "Не забыть").
+// Until then both buttons point to "#" as a placeholder.
+const href = import.meta.env.PUBLIC_APP_URL || '#';
+---
+
+<a
+  href={href}
+  class:list={[
+    'relative flex h-14 w-full items-center justify-center gap-2.25 rounded-pill bg-accent text-15 font-bold text-ink no-underline',
+    'transition-[transform,background-color] duration-350 ease-spring hover:-translate-y-0.75 hover:bg-accent-deep',
+    'lg:inline-flex lg:h-15 lg:w-auto lg:gap-2.5 lg:px-8 lg:text-16',
+    className,
+  ]}
+>
+  {texts.button}
+  <svg aria-hidden="true" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>

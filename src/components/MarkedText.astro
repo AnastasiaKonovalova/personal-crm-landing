@@ -1,0 +1,12 @@
+---
+// Renders a text where [square brackets] mark the phrase under the brush stroke.
+import Marker from './Marker.astro';
+import { nbsp } from '../lib/texts';
+
+interface Props {
+  text: string;
+}
+const parts = nbsp(Astro.props.text).split(/\[(.+?)\]/);
+---
+
+{parts.map((part, i) => (i % 2 === 1 ? <Marker>{part}</Marker> : part))}

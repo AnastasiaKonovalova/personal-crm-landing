@@ -1,0 +1,28 @@
+---
+import ContactCardStack from './ContactCardStack.astro';
+import CtaButton from './CtaButton.astro';
+import MarkedText from './MarkedText.astro';
+import { nbsp, texts } from '../lib/texts';
+---
+
+<section class="relative px-page pt-3 pb-6 lg:pt-12 lg:pb-24">
+  <div class="mx-auto grid max-w-content grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-center gap-7.5 lg:gap-16">
+    <div class="flex flex-col">
+      <div class="inline-flex items-center gap-2.25 self-start rounded-pill border border-line bg-surface px-3.5 py-1.5 font-display text-12-5 tracking-pill text-muted lg:px-4 lg:py-1.75 lg:text-13">
+        <span aria-hidden="true" class="size-1.75 rounded-full bg-teal"></span>{nbsp(texts.tagline)}
+      </div>
+
+      <h1 class="mt-5 text-balance font-display text-h1 font-semibold text-ink lg:mt-7 lg:text-h1-lg">
+        <MarkedText text={texts.hero_title} />
+      </h1>
+
+      <p class="mt-4 text-16 leading-relaxed text-muted lg:mt-6 lg:max-w-hero-text lg:text-19">
+        {nbsp(texts.hero_subtitle)}
+      </p>
+
+      <CtaButton class="mt-6.5 lg:mt-9 lg:self-start" />
+    </div>
+
+    <ContactCardStack />
+  </div>
+</section>

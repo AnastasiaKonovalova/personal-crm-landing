@@ -1,0 +1,38 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { nbsp, texts } from '../lib/texts';
+
+// Card 03 is highlighted by design
+const highlightIndex = 2;
+---
+
+<section class="px-page py-14 lg:py-24">
+  <div class="mx-auto flex max-w-content flex-col">
+    <SectionLabel>{nbsp(texts.benefits_label)}</SectionLabel>
+    <h2 class="mt-5 font-display text-h2 font-semibold text-ink lg:mt-6 lg:text-h2-lg">{nbsp(texts.benefits_title)}</h2>
+
+    <div class="mt-6.5 flex flex-wrap gap-3 lg:mt-11 lg:gap-4">
+      {texts.benefits.map((b, i) => {
+        const highlight = i === highlightIndex;
+        return (
+          <div
+            class:list={[
+              'relative flex grow basis-85 flex-col gap-4.5 overflow-hidden rounded-card border p-5.5 lg:p-7.5',
+              highlight ? 'border-aurora-gold bg-accent-soft' : 'border-line bg-surface',
+            ]}
+          >
+            <span
+              aria-hidden="true"
+              class:list={[
+                'absolute top-3 right-4 font-display text-number font-bold lg:top-4.5 lg:right-5.5 lg:text-number-lg',
+                highlight ? 'text-aurora-gold' : 'text-accent-soft',
+              ]}
+            >{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="relative pr-16 font-display text-19 leading-tight font-semibold tracking-title text-ink lg:pr-21 lg:text-22">{nbsp(b.title)}</h3>
+            <p class:list={['relative text-15 leading-body lg:text-16', highlight ? 'text-ink' : 'text-muted']}>{nbsp(b.text)}</p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

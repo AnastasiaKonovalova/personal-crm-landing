@@ -1,0 +1,41 @@
+---
+// Hero mockup: two rotated backing sheets + front contact card. A picture, not UI.
+const kicker = 'font-display text-11 tracking-kicker uppercase lg:text-11-5';
+const rows = [
+  { label: 'Телефон', value: '+7 900 765-43-21' },
+  { label: 'Почта', value: 'sasha.m@example.com' },
+];
+---
+
+<div
+  role="img"
+  aria-label="Пример карточки контакта"
+  class="relative h-88 w-full lg:h-100 lg:max-w-stack lg:justify-self-center"
+>
+  <div aria-hidden="true" class="absolute inset-x-4.5 top-0 h-77.5 -rotate-[3.5deg] rounded-case border border-line bg-surface-2 lg:inset-x-6 lg:h-87.5 lg:-rotate-4 lg:rounded-stack"></div>
+  <div aria-hidden="true" class="absolute inset-x-2 top-2.5 h-77.5 rotate-[2.5deg] rounded-case border border-line bg-accent-soft lg:inset-x-2.5 lg:top-3 lg:h-87.5 lg:rotate-3 lg:rounded-stack"></div>
+
+  <div aria-hidden="true" class="absolute inset-x-0 top-6 flex flex-col gap-4 rounded-case border border-line bg-surface p-5.5 shadow-card lg:top-7.5 lg:gap-4.5 lg:rounded-stack lg:p-7">
+    <div class="flex items-center gap-3.5 lg:gap-4">
+      <div class="flex size-13 flex-none items-center justify-center rounded-full bg-accent font-display text-18 font-semibold text-ink lg:size-15 lg:text-20">СМ</div>
+      <div class="flex flex-col gap-0.5 lg:gap-0.75">
+        <div class="font-display text-20 font-semibold tracking-name text-ink lg:text-23">Саша Миронов</div>
+        <div class="text-13 text-muted lg:text-14">Конференция «Продукт осенью» · Казань</div>
+      </div>
+    </div>
+
+    <div class="flex flex-col border-t border-line">
+      {rows.map((row) => (
+        <div class="flex items-baseline justify-between gap-3 border-b border-line py-2.75 lg:py-3">
+          <span class:list={[kicker, 'text-muted']}>{row.label}</span>
+          <span class="text-14-5 text-ink lg:text-15-5">{row.value}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex flex-col gap-1 rounded-inset bg-surface-2 px-4 py-3.5 lg:gap-1.25 lg:px-4.5 lg:py-4">
+      <div class:list={[kicker, 'text-brown']}>Заметка · после разговора</div>
+      <div class="text-14-5 leading-snug text-ink lg:text-15-5">Обещал скинуть ему контакт дизайнера. Вернуться к идее совместного подкаста</div>
+    </div>
+  </div>
+</div>

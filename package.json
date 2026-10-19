@@ -1,0 +1,19 @@
+{
+  "name": "personal-crm-landing",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "og": "node scripts/og-image.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "5.3.0",
+    "@fontsource-variable/space-grotesk": "5.3.0",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.4.0",
+    "tailwindcss": "4.3.3"
+  }
+}

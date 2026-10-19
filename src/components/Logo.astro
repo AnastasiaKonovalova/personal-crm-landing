@@ -1,0 +1,20 @@
+---
+import LogoMark from './LogoMark.astro';
+import { texts } from '../lib/texts';
+
+interface Props {
+  size: 'header' | 'footer';
+}
+const { size } = Astro.props;
+const isHeader = size === 'header';
+---
+
+<div class:list={['flex items-center', isHeader ? 'gap-2.5 lg:gap-3' : 'gap-2 lg:gap-2.5']}>
+  <LogoMark class={isHeader ? 'h-7 w-9.5 lg:h-8 lg:w-11' : 'h-4.75 w-6.5 lg:h-5.5 lg:w-7.5'} />
+  <span
+    class:list={[
+      'font-display text-ink',
+      isHeader ? 'text-24 font-bold tracking-logo lg:text-26' : 'text-15 font-semibold lg:text-16',
+    ]}
+  >{texts.brand}<span class="text-accent">.</span></span>
+</div>

@@ -1,0 +1,99 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { nbsp, texts } from '../lib/texts';
+
+// Each step has its own mockup below, so exactly three steps are rendered
+const [step1, step2, step3] = texts.solution_steps;
+
+const kicker = 'font-display text-11 tracking-kicker uppercase';
+const field = 'rounded-field border border-line bg-bg px-3 py-2.25 text-14 text-ink';
+const avatar = 'flex size-8 flex-none items-center justify-center rounded-full font-display text-12 font-semibold lg:size-8.5';
+
+const contacts = [
+  { initials: 'МЛ', name: 'Марина Лебедева', origin: 'Курс керамики', tone: 'bg-accent-soft text-brown' },
+  { initials: 'СМ', name: 'Саша Миронов', origin: 'Конференция «Продукт осенью»', tone: 'bg-accent text-ink' },
+  { initials: 'ОВ', name: 'Олег Ветров', origin: 'Сосед по даче', tone: 'bg-surface-2 text-muted' },
+];
+---
+
+<section class="border-y border-line bg-surface px-page py-14 lg:py-24">
+  <div class="mx-auto flex max-w-content flex-col">
+    <SectionLabel>{nbsp(texts.solution_label)}</SectionLabel>
+
+    <div class="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-end gap-x-16 gap-y-4 lg:mt-6 lg:gap-y-6">
+      <h2 class="font-display text-h2 font-semibold text-ink lg:text-h2-lg">{nbsp(texts.solution_title)}</h2>
+      <p class="text-16 leading-relaxed text-muted lg:max-w-lead lg:text-17">
+        {nbsp(texts.solution_text)}
+      </p>
+    </div>
+
+    <ol class="mt-7.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-4 lg:mt-13 lg:gap-5">
+      <li class="flex flex-col gap-4 rounded-case border border-line bg-bg p-5 lg:gap-5 lg:p-6">
+        <div class="flex items-start gap-3.5 lg:flex-col">
+          <span aria-hidden="true" class="flex size-9 flex-none items-center justify-center rounded-full bg-accent font-display text-15 font-bold text-ink lg:size-10 lg:text-16">1</span>
+          <div class="text-15-5 leading-body text-ink lg:min-h-18.75 lg:text-16">
+            <strong class="font-display text-18 font-semibold lg:text-20">{nbsp(step1.title)}</strong> — {nbsp(step1.text)}
+          </div>
+        </div>
+        <div aria-hidden="true" class="flex flex-col rounded-inset border border-line bg-surface px-3.5 py-1.5 lg:mt-auto">
+          {contacts.map((c, i) => (
+            <div class:list={['flex items-center gap-3 py-2.5 lg:py-2.75', i < contacts.length - 1 && 'border-b border-line']}>
+              <span class:list={[avatar, c.tone]}>{c.initials}</span>
+              <span class="flex flex-col">
+                <span class="text-14 font-semibold text-ink lg:text-14-5">{c.name}</span>
+                <span class="text-12-5 text-muted lg:text-13">{c.origin}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </li>
+
+      <li class="flex flex-col gap-4 rounded-case border border-line bg-bg p-5 lg:gap-5 lg:p-6">
+        <div class="flex items-start gap-3.5 lg:flex-col">
+          <span aria-hidden="true" class="flex size-9 flex-none items-center justify-center rounded-full bg-accent font-display text-15 font-bold text-ink lg:size-10 lg:text-16">2</span>
+          <div class="text-15-5 leading-body text-ink lg:min-h-18.75 lg:text-16">
+            <strong class="font-display text-18 font-semibold lg:text-20">{nbsp(step2.title)}</strong> — {nbsp(step2.text)}
+          </div>
+        </div>
+        <div aria-hidden="true" class="flex flex-col gap-2.5 rounded-inset border border-line bg-surface p-3.5 lg:mt-auto">
+          <div class="flex flex-col gap-1">
+            <span class:list={[kicker, 'text-muted']}>Имя</span>
+            <span class={field}>Ира Соколова</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class:list={[kicker, 'text-muted']}>Откуда знакомы</span>
+            <span class={field}>Поход на Алтай, лето 2024</span>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex min-w-0 flex-1 flex-col gap-1">
+              <span class:list={[kicker, 'text-muted']}>Телефон</span>
+              <span class:list={[field, 'lg:truncate']}>+7 900 222-33-44</span>
+            </div>
+            <div class="flex min-w-0 flex-1 flex-col gap-1">
+              <span class:list={[kicker, 'text-muted']}>Почта</span>
+              <span class:list={[field, 'truncate']}>ira@example.com</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="flex flex-col gap-4 rounded-case border border-line bg-bg p-5 lg:gap-5 lg:p-6">
+        <div class="flex items-start gap-3.5 lg:flex-col">
+          <span aria-hidden="true" class="flex size-9 flex-none items-center justify-center rounded-full bg-accent font-display text-15 font-bold text-ink lg:size-10 lg:text-16">3</span>
+          <div class="text-15-5 leading-body text-ink lg:min-h-18.75 lg:text-16">
+            <strong class="font-display text-18 font-semibold lg:text-20">{nbsp(step3.title)}</strong> — {nbsp(step3.text)}
+          </div>
+        </div>
+        <div aria-hidden="true" class="flex flex-col gap-2.5 rounded-inset border border-line bg-surface p-3.5 lg:mt-auto">
+          <div class="flex items-center gap-2.5 rounded-pill border-[1.5px] border-teal-deep bg-bg px-3.5 py-2.5 text-14 text-ink">
+            <svg class="size-4 text-teal-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Ира
+          </div>
+          <div class="flex flex-col gap-1 rounded-note bg-surface-2 px-3.5 py-3">
+            <span class:list={[kicker, 'text-teal-deep']}>Новая заметка</span>
+            <span class="text-14 leading-snug text-ink">Созвонились. Зовёт в осенний поход на Ладогу — ответить до пятницы<span class="ml-0.5 inline-block h-4 w-0.5 bg-teal-deep align-[-3px]"></span></span>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>

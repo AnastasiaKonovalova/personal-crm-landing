@@ -1,0 +1,25 @@
+---
+import CtaButton from './CtaButton.astro';
+import LogoMark from './LogoMark.astro';
+import MarkedText from './MarkedText.astro';
+import { nbsp, texts } from '../lib/texts';
+---
+
+<section class="px-page pt-2 pb-12 lg:pt-0 lg:pb-24">
+  <div class="relative mx-auto flex max-w-content flex-col items-center overflow-hidden rounded-contact border border-line bg-surface px-6 pt-10 pb-7 text-center lg:px-cta-x lg:py-cta-y">
+    <div aria-hidden="true" class="glow-soft absolute -top-22.5 -right-22.5 size-65 rounded-full lg:-top-35 lg:-right-30 lg:size-110"></div>
+    <div aria-hidden="true" class="glow-gold absolute -bottom-45 -left-35 hidden size-100 rounded-full lg:block"></div>
+
+    <LogoMark class="relative h-9.5 w-13 lg:h-11.75 lg:w-16" />
+
+    <h2 class="relative mt-5.5 font-display text-cta font-semibold text-ink lg:mt-7 lg:text-cta-lg">
+      <MarkedText text={texts.cta_title} />
+    </h2>
+
+    <p class="relative mt-4 text-16 leading-relaxed text-muted lg:mt-5 lg:max-w-cta-text lg:text-19">
+      {nbsp(texts.cta_subtitle)}
+    </p>
+
+    <CtaButton class="mt-7 lg:mt-9" />
+  </div>
+</section>
