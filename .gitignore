@@ -5,3 +5,23 @@ dist/
 .env.*
 !.env.example
 .DS_Store
+build/
+*.log
+# Secrets
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials*.json
+service-account*.json
+secrets*.json
+token.json
+# Local AI / agent / editor state
+.claude/
+.cursor/
+.codex/
+.gemini/
+.mcp.json
+claude_desktop_config.json
